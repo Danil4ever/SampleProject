@@ -26,7 +26,7 @@ interface BaseMvpActivityView : MvpView {
 
     fun backPressed()
 
-    fun showError(errorMessage: String)
+    fun showError(error: Throwable)
 
     fun showLoadingIndicator(show: Boolean)
 

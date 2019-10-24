@@ -23,11 +23,13 @@ import simple.code.base.mvp.BaseMvpActivityPresenter
 import simple.code.base.mvp.BaseMvpActivityView
 import simple.code.base.navigation.BackButtonListener
 import simple.code.base.utils.SnackbarUtils
+import timber.log.Timber
 
 
-abstract class BaseActivity<PRESENTER : BaseMvpActivityPresenter<*>> : MvpAppCompatActivityX(), BaseMvpActivityView {
+abstract class BaseActivity<PRESENTER : BaseMvpActivityPresenter<*>> : MvpAppCompatActivityX(),
+    BaseMvpActivityView {
 
-    abstract val presenter: PRESENTER
+    protected abstract val presenter: PRESENTER
 
     @ProvidePresenter
     fun providePresenter() = presenter
@@ -64,8 +66,8 @@ abstract class BaseActivity<PRESENTER : BaseMvpActivityPresenter<*>> : MvpAppCom
             }
         }
         if (fragment != null
-                && fragment is BackButtonListener
-                && (fragment as BackButtonListener).onBackPressed()
+            && fragment is BackButtonListener
+            && (fragment as BackButtonListener).onBackPressed()
         ) {
             return
         }
@@ -112,11 +114,11 @@ abstract class BaseActivity<PRESENTER : BaseMvpActivityPresenter<*>> : MvpAppCom
     override fun setStatusBarTransparent(transparent: Boolean) {
         if (transparent) {
             window.decorView.systemUiVisibility =
-                    View.SYSTEM_UI_FLAG_LAYOUT_STABLE or View.SYSTEM_UI_FLAG_LAYOUT_FULLSCREEN
+                View.SYSTEM_UI_FLAG_LAYOUT_STABLE or View.SYSTEM_UI_FLAG_LAYOUT_FULLSCREEN
             window.statusBarColor = Color.TRANSPARENT
         } else {
             window.decorView.systemUiVisibility =
-                    View.SYSTEM_UI_FLAG_LAYOUT_STABLE xor View.SYSTEM_UI_FLAG_LAYOUT_FULLSCREEN
+                View.SYSTEM_UI_FLAG_LAYOUT_STABLE xor View.SYSTEM_UI_FLAG_LAYOUT_FULLSCREEN
             window.statusBarColor = resources.getColor(R.color.colorPrimaryDark)
         }
     }
@@ -128,7 +130,7 @@ abstract class BaseActivity<PRESENTER : BaseMvpActivityPresenter<*>> : MvpAppCom
                 window.decorView.systemUiVisibility or View.SYSTEM_UI_FLAG_LIGHT_STATUS_BAR
             } else {
                 window.decorView.systemUiVisibility =
-                        window.decorView.systemUiVisibility xor View.SYSTEM_UI_FLAG_LIGHT_STATUS_BAR
+                    window.decorView.systemUiVisibility xor View.SYSTEM_UI_FLAG_LIGHT_STATUS_BAR
             }
         }
     }
@@ -152,8 +154,8 @@ abstract class BaseActivity<PRESENTER : BaseMvpActivityPresenter<*>> : MvpAppCom
 
     override fun replaceFragment(fragment: Fragment) {
         supportFragmentManager.beginTransaction()
-                .replace(R.id.container, fragment)
-                .commit()
+            .replace(R.id.container, fragment)
+            .commit()
 
     }
 
@@ -166,7 +168,8 @@ abstract class BaseActivity<PRESENTER : BaseMvpActivityPresenter<*>> : MvpAppCom
         onBackPressed()
     }
 
-    override fun showError(errorMessage: String) {
+    override fun showError(error: Throwable) {
+        Timber.e(error)
 
         val frameLayout: FrameLayout? = findViewById(R.id.container)
 
@@ -175,10 +178,10 @@ abstract class BaseActivity<PRESENTER : BaseMvpActivityPresenter<*>> : MvpAppCom
         if (frameLayout == null) {
             val parentLayout = findViewById<View>(android.R.id.content)
             imm.hideSoftInputFromWindow(parentLayout.windowToken, 0)
-            SnackbarUtils.showSnackbar(parentLayout, errorMessage)
+            SnackbarUtils.showSnackbar(parentLayout, error.localizedMessage)
         } else {
             imm.hideSoftInputFromWindow(frameLayout.windowToken, 0)
-            SnackbarUtils.showSnackbar(frameLayout, errorMessage)
+            SnackbarUtils.showSnackbar(frameLayout, error.localizedMessage)
         }
 
 

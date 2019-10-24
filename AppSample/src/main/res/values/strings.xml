@@ -3,4 +3,8 @@
     <string name="films">Фильмы</string>
     <string name="books">Книги</string>
     <string name="movies">Фильмы</string>
+    <string name="date_release">Дата выпуска:</string>
+    <string name="rate">Оценка</string>
+    <string name="budget">Бюджет</string>
+    <string name="year">Год</string>
 </resources>

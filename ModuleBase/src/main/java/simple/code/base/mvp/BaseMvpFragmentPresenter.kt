@@ -1,6 +1,5 @@
 package simple.code.base.mvp
 
-import android.content.Context
 import com.arellomobile.mvp.MvpPresenter
 import io.reactivex.disposables.CompositeDisposable
 import ru.terrakok.cicerone.Router
@@ -13,40 +12,38 @@ abstract class BaseMvpFragmentPresenter<T : BaseMvpFragmentView> : MvpPresenter<
 
     protected var router: Router = BaseApplication.getRouter()
 
-    protected lateinit var context: Context
-    protected var activityPresenter: BaseMvpActivityPresenter<*>? = null
+    protected var activity: BaseActivity<*>? = null
 
-    abstract val data: DataLayer
+    protected abstract val data: DataLayer
 
-    var cd: CompositeDisposable = CompositeDisposable()
+    protected var cd: CompositeDisposable = CompositeDisposable()
 
     open fun init(activity: BaseActivity<*>) {
-        activityPresenter = activity.presenter
-        this.context = activity
+        this.activity = activity
     }
 
     fun setStatusBarTransparent(transparent: Boolean) {
-        activityPresenter?.setStatusBarTransparent(transparent)
+        activity?.setStatusBarTransparent(transparent)
     }
 
     fun setStatusBarLightIconsColor(statusBarIconsLight: Boolean) {
-        activityPresenter?.setStatusBarLightIconsColor(statusBarIconsLight)
+        activity?.setStatusBarLightIconsColor(statusBarIconsLight)
     }
 
     fun showBottomNavigation(show: Boolean) {
-        activityPresenter?.showBottomNavigation(show)
+        activity?.showBottomNavigation(show)
     }
 
     fun changeStatusBarColor(color: Int) {
-        activityPresenter?.changeStatusBarColor(color)
+        activity?.changeStatusBarColor(color)
     }
 
     fun showError(error: Throwable) {
-        activityPresenter?.showError(error)
+        activity?.showError(error)
     }
 
     open fun showLoadingIndicator(show: Boolean) {
-        activityPresenter?.showLoadingIndicator(show)
+        activity?.showLoadingIndicator(show)
     }
 
     fun onDestroyView() {
@@ -56,11 +53,11 @@ abstract class BaseMvpFragmentPresenter<T : BaseMvpFragmentView> : MvpPresenter<
     }
 
     fun backPressed() {
-        activityPresenter?.backPressed()
+        activity?.backPressed()
     }
 
     fun finishActivity() {
-        activityPresenter?.finishActivity()
+        activity?.finishActivity()
     }
 
     fun setCurrentRouter(router: Router) {
@@ -76,7 +73,7 @@ abstract class BaseMvpFragmentPresenter<T : BaseMvpFragmentView> : MvpPresenter<
     }
 
     fun showKeyboard(show: Boolean) {
-        activityPresenter?.showKeyboard(show)
+        activity?.showKeyboard(show)
     }
 
     fun navigateToScreen(screen: SupportAppScreen) {

@@ -24,9 +24,9 @@ class VHMovie(override val containerView: View, private val presenter: MoviesPre
         calendar.timeInMillis = details.releaseDate.time
         tvReleaseYear.text = calendar.get(Calendar.YEAR).toString()
 
-        /* containerView.setOnClickListener {
-             presenter.goToUserDetails(details)
-         }*/
+        containerView.setOnClickListener {
+            presenter.goToMovieDetails(details)
+        }
 
     }
 }

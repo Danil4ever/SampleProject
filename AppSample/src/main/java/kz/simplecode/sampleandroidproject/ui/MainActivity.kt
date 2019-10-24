@@ -32,7 +32,7 @@ class MainActivity : BaseActivity<MainActivityPresenter>(), MainActivityView {
             return@OnNavigationItemSelectedListener true
         })
 
-        selectTab(R.id.navigation_movies)
+        presenter.selectTab(R.id.navigation_movies)
 
     }
 

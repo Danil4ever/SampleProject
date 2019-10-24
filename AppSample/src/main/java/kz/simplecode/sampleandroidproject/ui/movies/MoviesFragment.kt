@@ -24,13 +24,10 @@ class MoviesFragment : BaseMvpFragment<MoviesPresenter>(), MoviesView {
     override fun onViewCreated(view: View, savedInstanceState: Bundle?) {
         super.onViewCreated(view, savedInstanceState)
 
-        ivBack.setOnClickListener { presenter.backPressed() }
-
         adapter = MoviesAdapter(presenter)
         rvFriends.adapter = adapter
 
         presenter.loadMovies()
-
 
     }
 
@@ -46,7 +43,7 @@ class MoviesFragment : BaseMvpFragment<MoviesPresenter>(), MoviesView {
     }
 
     override fun showEmpty(string: String) {
-        tvEmptyDesc.text = string
+        tvYear.text = string
         rvFriends.visibility = View.GONE
         llEmpty.visibility = View.VISIBLE
     }

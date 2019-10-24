@@ -2,6 +2,7 @@ package kz.simplecode.sampleandroidproject.data.models
 
 
 import com.google.gson.annotations.SerializedName
+import java.util.*
 
 data class MovieDetails(
     @SerializedName("adult")
@@ -35,7 +36,7 @@ data class MovieDetails(
     @SerializedName("production_countries")
     val productionCountries: List<ProductionCountry>,
     @SerializedName("release_date")
-    val releaseDate: String,
+    val releaseDate: Date,
     @SerializedName("revenue")
     val revenue: Int,
     @SerializedName("runtime")

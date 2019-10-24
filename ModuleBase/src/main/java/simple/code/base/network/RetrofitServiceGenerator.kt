@@ -19,19 +19,13 @@ import java.util.concurrent.TimeUnit
 
 object RetrofitServiceGenerator {
 
-    fun <S> createService(serviceClass: Class<S>, url: String, token: String): S {
+    fun <S> createService(serviceClass: Class<S>, url: String): S {
 
         val okHttpClient: OkHttpClient = OkHttpClient().newBuilder()
             .connectTimeout(30, TimeUnit.SECONDS)
             .readTimeout(30, TimeUnit.SECONDS)
             .writeTimeout(30, TimeUnit.SECONDS)
             .addInterceptor(HttpLoggingInterceptor().setLevel(HttpLoggingInterceptor.Level.BODY))
-            .addInterceptor { chain ->
-                val request = chain.request().newBuilder()
-                    .addHeader("Authorization", "Bearer $token")
-                    .build()
-                chain.proceed(request)
-            }
             .build()
 
         val retrofitBuilder: Retrofit.Builder = Retrofit.Builder()

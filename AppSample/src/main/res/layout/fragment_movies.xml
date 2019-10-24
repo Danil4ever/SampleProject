@@ -12,19 +12,10 @@
         android:layout_height="wrap_content"
         android:orientation="horizontal">
 
-        <ImageView
-            android:id="@+id/ivBack"
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:padding="@dimen/margin_side_description"
-            android:paddingStart="0dp"
-            android:src="@drawable/ic_arrow_back" />
-
         <TextView
             style="@style/TextTitle"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
-            android:layout_marginEnd="42dp"
             android:text="@string/movies" />
     </LinearLayout>
 
@@ -44,11 +35,10 @@
         <ImageView
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
-            android:layout_gravity="center"
-             />
+            android:layout_gravity="center" />
 
         <TextView
-            android:id="@+id/tvEmptyDesc"
+            android:id="@+id/tvYear"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:layout_gravity="center"

@@ -1,6 +1,6 @@
 package simple.code.base.mvp
 
-import android.content.Context
+import android.app.Activity
 import android.os.Bundle
 import android.os.Handler
 import com.arellomobile.mvp.MvpPresenter
@@ -8,21 +8,20 @@ import io.reactivex.disposables.CompositeDisposable
 import ru.terrakok.cicerone.Router
 import simple.code.base.BaseApplication
 import simple.code.base.data.DataLayer
-import timber.log.Timber
 import java.util.*
 
 abstract class BaseMvpActivityPresenter<T : BaseMvpActivityView> : MvpPresenter<T>() {
 
     protected abstract val data: DataLayer
-    val router: Router = BaseApplication.getRouter()
+    protected val router: Router = BaseApplication.getRouter()
     protected var tabRouter: Router? = null
 
-    protected lateinit var context: Context
+    protected lateinit var activity: Activity
 
     protected var cd: CompositeDisposable = CompositeDisposable()
 
-    open fun init(context: Context) {
-        this.context = context
+    open fun init(activity: Activity) {
+        this.activity = activity
     }
 
     open fun selectTab(tabId: Int) {
@@ -66,8 +65,7 @@ abstract class BaseMvpActivityPresenter<T : BaseMvpActivityView> : MvpPresenter<
     }
 
     open fun showError(error: Throwable) {
-        Timber.e(error)
-        viewState.showError(error.localizedMessage)
+        viewState.showError(error)
     }
 
     fun showKeyboard(show: Boolean){
