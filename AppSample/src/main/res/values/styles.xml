@@ -8,4 +8,9 @@
         <item name="colorAccent">@color/colorAccent</item>
     </style>
 
+    <style name="BottomNavigationTheme" parent="AppTheme">
+        <item name="colorPrimary">@color/tab_active</item>
+        <item name="android:textColorSecondary">@color/tab_inactive</item>
+    </style>
+
 </resources>

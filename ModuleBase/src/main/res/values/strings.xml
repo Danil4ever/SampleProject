@@ -1,0 +1,11 @@
+<resources>
+    <string name="hint_exit">Пожалуйста нажмите НАЗАД еще раз для выхода</string>
+
+    <string name="male">Мужской</string>
+    <string name="female">Женский</string>
+
+    <string name="yes">Да</string>
+    <string name="no">Нет</string>
+
+
+</resources>

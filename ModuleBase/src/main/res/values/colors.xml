@@ -1,0 +1,29 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+    <color name="colorPrimary">#59AFFF</color>
+    <color name="black20">#32000000</color>
+    <color name="black50">#80000000</color>
+    <color name="statusBar">#40000000</color>
+    <color name="colorAccent">#5234FF</color>
+    <color name="colorPrimaryDark">#1223FE</color>
+    <color name="circleOpacity">#90FFFFFF</color>
+    <color name="inactive">#F6F8FB</color>
+    <color name="unchecked">#D6DCE3</color>
+    <color name="grayCardView">#F2F5F9</color>
+
+    <color name="nt_red">#EF4D4D</color>
+    <color name="hint">#ABB8C7</color>
+    <color name="textSubstrateBlack30">#4D000000</color>
+    <color name="textSubstrateBlack50">#80000000</color>
+
+
+    <!--BUTTON-->
+    <color name="buttonTextColor">#606774</color>
+
+
+    <!--TextColors-->
+    <color name="TextColorSearch">#606774</color>
+
+    <!--DIVIDER-->
+    <color name="dividerItem">#E6EDF5</color>
+</resources>
