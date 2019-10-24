@@ -10,7 +10,7 @@ abstract class SampleActivityPresenter<T : BaseMvpActivityView> : BaseMvpActivit
 
     override val data = SampleDataLayer
 
-    val serverApi: ServerAPI = ServerAPIImpl
+    protected val serverApi: ServerAPI = ServerAPIImpl
 
 
 }

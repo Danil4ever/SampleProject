@@ -6,11 +6,25 @@
         <item name="colorPrimary">@color/colorPrimary</item>
         <item name="colorPrimaryDark">@color/colorPrimaryDark</item>
         <item name="colorAccent">@color/colorAccent</item>
+
+        <item name="windowActionBar">false</item>
+        <item name="windowNoTitle">true</item>
     </style>
 
     <style name="BottomNavigationTheme" parent="AppTheme">
         <item name="colorPrimary">@color/tab_active</item>
         <item name="android:textColorSecondary">@color/tab_inactive</item>
+    </style>
+
+    <style name="TextTitle" parent="android:Widget.TextView">
+        <item name="android:layout_width">match_parent</item>
+        <item name="android:layout_height">wrap_content</item>
+        <item name="android:layout_marginTop">@dimen/margin_side_description</item>
+        <item name="android:layout_marginBottom">@dimen/margin_side_description</item>
+        <item name="android:textSize">16sp</item>
+        <item name="android:textColor">@android:color/white</item>
+        <item name="android:textStyle">bold</item>
+        <item name="android:gravity">center_horizontal</item>
     </style>
 
 </resources>

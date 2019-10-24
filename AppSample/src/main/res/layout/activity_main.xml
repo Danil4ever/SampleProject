@@ -10,7 +10,8 @@
         android:id="@+id/container"
         android:layout_width="match_parent"
         android:layout_height="match_parent"
-        android:layout_above="@+id/bottomAppBar" />
+        android:paddingBottom="56dp"
+        android:background="@color/colorPrimaryDark" />
 
     <com.google.android.material.bottomappbar.BottomAppBar
         android:id="@+id/bottomAppBar"
@@ -33,12 +34,12 @@
     </com.google.android.material.bottomappbar.BottomAppBar>
 
     <FrameLayout
-        android:id="@+id/blurLayout"
+        android:id="@+id/loadingIndicator"
         android:layout_width="match_parent"
         android:layout_height="match_parent"
+        android:background="@color/black50"
         android:clickable="true"
         android:focusable="true"
-        android:background="@color/black50"
         android:visibility="gone">
 
         <com.github.ybq.android.spinkit.SpinKitView

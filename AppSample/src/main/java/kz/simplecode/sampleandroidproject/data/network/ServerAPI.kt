@@ -12,6 +12,7 @@ interface ServerAPI {
     fun listMovies(
         @Path("list_id") list_id: Int? = 1,
         @Query("page") page: Int? = 1,
+        @Query("language") language: String? = "ru-Ru",
         @Query("sort_by") sort_by: String? = "vote_average.asc"
     ): Observable<Movies>
 

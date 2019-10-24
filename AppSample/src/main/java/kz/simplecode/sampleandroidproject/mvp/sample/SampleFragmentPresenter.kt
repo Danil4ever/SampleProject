@@ -11,7 +11,7 @@ abstract class SampleFragmentPresenter<T : BaseMvpFragmentView> : BaseMvpFragmen
 
     override val data = SampleDataLayer
 
-    val serverApi: ServerAPI = ServerAPIImpl
+    protected val serverApi: ServerAPI = ServerAPIImpl
 
 
 }

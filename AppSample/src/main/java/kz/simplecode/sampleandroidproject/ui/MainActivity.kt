@@ -7,6 +7,8 @@ import com.google.android.material.bottomnavigation.BottomNavigationView
 import kz.simplecode.sampleandroidproject.R
 import kz.simplecode.sampleandroidproject.mvp.main.MainActivityPresenter
 import kz.simplecode.sampleandroidproject.mvp.main.MainActivityView
+import kz.simplecode.sampleandroidproject.ui.tabs.BooksTabFragment
+import kz.simplecode.sampleandroidproject.ui.tabs.MoviesTabFragment
 import simple.code.base.ui.BaseActivity
 import simple.code.base.ui.BaseMvpFragment
 import simple.code.base.ui.BaseTabContainerFragment
@@ -29,6 +31,8 @@ class MainActivity : BaseActivity<MainActivityPresenter>(), MainActivityView {
             changeTab(item.itemId)
             return@OnNavigationItemSelectedListener true
         })
+
+        selectTab(R.id.navigation_movies)
 
     }
 
@@ -59,12 +63,12 @@ class MainActivity : BaseActivity<MainActivityPresenter>(), MainActivityView {
 
         if (newFragment == null) {
             newFragment = when (tab) {
-//                R.id.navigation_movies -> ShopTabFragment()
-//                R.id.navigation_books -> GamesTabFragment()
+                R.id.navigation_movies -> MoviesTabFragment()
+                R.id.navigation_books -> BooksTabFragment()
                 else -> throw IllegalArgumentException()
             }
 
-            transaction.add(R.id.container, newFragment!!, tab.toString())
+            transaction.add(R.id.container, newFragment, tab.toString())
         } else {
             transaction.show(newFragment)
             if (newFragment is BaseTabContainerFragment) newFragment.onShow()

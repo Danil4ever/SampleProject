@@ -35,7 +35,7 @@ abstract class BaseActivity<PRESENTER : BaseMvpActivityPresenter<*>> : MvpAppCom
     protected abstract fun getLayoutResourceId(): Int
 
 
-    private var blurLayout: FrameLayout? = null
+    private var loadingIndicator: FrameLayout? = null
     protected var bottomNavigation: BottomNavigationView? = null
 
     /** Implement MvpAppCompatActivity **/
@@ -45,7 +45,7 @@ abstract class BaseActivity<PRESENTER : BaseMvpActivityPresenter<*>> : MvpAppCom
 
         presenter.init(this)
 
-        blurLayout = findViewById(R.id.blurLayout)
+        loadingIndicator = findViewById(R.id.loadingIndicator)
         bottomNavigation = findViewById(R.id.bottomNavigation)
     }
 
@@ -185,7 +185,7 @@ abstract class BaseActivity<PRESENTER : BaseMvpActivityPresenter<*>> : MvpAppCom
     }
 
     override fun showLoadingIndicator(show: Boolean) {
-        blurLayout?.visibility = if (show) View.VISIBLE else View.GONE
+        loadingIndicator?.visibility = if (show) View.VISIBLE else View.GONE
     }
 
     override fun sendFirebaseAnalytics(bundle: Bundle) {
