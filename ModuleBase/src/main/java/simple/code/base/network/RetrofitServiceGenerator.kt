@@ -19,26 +19,7 @@ import java.util.concurrent.TimeUnit
 
 object RetrofitServiceGenerator {
 
-    private val okHttpClient: OkHttpClient = OkHttpClient().newBuilder()
-        .connectTimeout(30, TimeUnit.SECONDS)
-        .readTimeout(30, TimeUnit.SECONDS)
-        .writeTimeout(30, TimeUnit.SECONDS)
-        .addInterceptor(HttpLoggingInterceptor().setLevel(HttpLoggingInterceptor.Level.BODY))
-        .build()
-
-    private val retrofitBuilder: Retrofit.Builder = Retrofit.Builder()
-
-        .addCallAdapterFactory(ObserveOnMainCallAdapterFactory(AndroidSchedulers.mainThread()))
-        .addCallAdapterFactory(RxJava2CallAdapterFactory.createWithScheduler(io()))
-        .addConverterFactory(GsonConverterFactory.create(Gson()))
-        .client(okHttpClient)
-
-
-    fun <S> createService(serviceClass: Class<S>, url: String): S {
-        return retrofitBuilder.baseUrl(url).build().create(serviceClass)
-    }
-
-    fun <S> createService(serviceClass: Class<S>, url: String, lang: String, token: String): S {
+    fun <S> createService(serviceClass: Class<S>, url: String, token: String): S {
 
         val okHttpClient: OkHttpClient = OkHttpClient().newBuilder()
             .connectTimeout(30, TimeUnit.SECONDS)
@@ -47,10 +28,7 @@ object RetrofitServiceGenerator {
             .addInterceptor(HttpLoggingInterceptor().setLevel(HttpLoggingInterceptor.Level.BODY))
             .addInterceptor { chain ->
                 val request = chain.request().newBuilder()
-                    .addHeader(
-                        "x-api-token", token
-                    )
-                    .addHeader("x-lang", lang)
+                    .addHeader("Authorization", "Bearer $token")
                     .build()
                 chain.proceed(request)
             }
@@ -76,7 +54,7 @@ object RetrofitServiceGenerator {
             annotations: Array<Annotation>,
             retrofit: Retrofit
         ): CallAdapter<*, Observable<*>>? {
-            if (CallAdapter.Factory.getRawType(returnType) != Observable::class.java) {
+            if (getRawType(returnType) != Observable::class.java) {
                 return null
             }
 

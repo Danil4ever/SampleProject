@@ -17,9 +17,7 @@ abstract class BaseMvpActivityPresenter<T : BaseMvpActivityView> : MvpPresenter<
     val router: Router = BaseApplication.getRouter()
     protected var tabRouter: Router? = null
 
-
     protected lateinit var context: Context
-
 
     protected var cd: CompositeDisposable = CompositeDisposable()
 

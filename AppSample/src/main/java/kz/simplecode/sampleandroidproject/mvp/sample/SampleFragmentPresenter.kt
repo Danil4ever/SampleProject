@@ -1,6 +1,8 @@
 package kz.simplecode.sampleandroidproject.mvp.sample
 
 import kz.simplecode.sampleandroidproject.data.SampleDataLayer
+import kz.simplecode.sampleandroidproject.data.network.ServerAPI
+import kz.simplecode.sampleandroidproject.data.network.ServerAPIImpl
 import simple.code.base.mvp.BaseMvpFragmentPresenter
 import simple.code.base.mvp.BaseMvpFragmentView
 
@@ -9,7 +11,7 @@ abstract class SampleFragmentPresenter<T : BaseMvpFragmentView> : BaseMvpFragmen
 
     override val data = SampleDataLayer
 
-    //val serverApi: ServerAPI = ServerAPIImpl
+    val serverApi: ServerAPI = ServerAPIImpl
 
 
 }

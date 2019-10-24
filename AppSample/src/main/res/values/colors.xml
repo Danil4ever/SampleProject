@@ -5,6 +5,6 @@
     <color name="colorAccent">#9F3DD9</color>
 
     //BottomNavigation Colors
-    <color name="tab_active">#FFB342</color>
+    <color name="tab_active">#FFB343</color>
     <color name="tab_inactive">#FFFFFF</color>
 </resources>
