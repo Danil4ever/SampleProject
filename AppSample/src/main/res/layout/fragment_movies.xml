@@ -20,7 +20,7 @@
     </LinearLayout>
 
     <androidx.recyclerview.widget.RecyclerView
-        android:id="@+id/rvFriends"
+        android:id="@+id/rvMovies"
         android:layout_width="match_parent"
         android:layout_height="match_parent"
         app:layoutManager="androidx.recyclerview.widget.LinearLayoutManager" />
@@ -29,19 +29,21 @@
         android:id="@+id/llEmpty"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
+        android:layout_gravity="center"
         android:orientation="vertical"
         android:visibility="gone">
 
         <ImageView
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:layout_gravity="center" />
+            android:layout_width="54dp"
+            android:layout_height="54dp"
+            android:layout_gravity="center"
+            android:src="@drawable/ic_warning" />
 
         <TextView
-            android:id="@+id/tvYear"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:layout_gravity="center"
+            android:text="@string/empty"
             android:textColor="@android:color/white"
             android:textSize="16sp" />
     </LinearLayout>

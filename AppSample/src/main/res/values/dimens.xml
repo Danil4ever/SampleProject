@@ -1,4 +1,6 @@
 <?xml version="1.0" encoding="utf-8"?>
 <resources>
     <dimen name="margin_side_description">16dp</dimen>
+    <dimen name="text_field_height">40dp</dimen>
+    <dimen name="button_corner_radius">2dp</dimen>
 </resources>

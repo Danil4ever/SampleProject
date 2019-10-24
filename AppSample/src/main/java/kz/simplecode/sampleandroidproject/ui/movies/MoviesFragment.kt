@@ -25,7 +25,7 @@ class MoviesFragment : BaseMvpFragment<MoviesPresenter>(), MoviesView {
         super.onViewCreated(view, savedInstanceState)
 
         adapter = MoviesAdapter(presenter)
-        rvFriends.adapter = adapter
+        rvMovies.adapter = adapter
 
         presenter.loadMovies()
 
@@ -37,14 +37,13 @@ class MoviesFragment : BaseMvpFragment<MoviesPresenter>(), MoviesView {
     }
 
     override fun showMovies(list: List<MovieShort>) {
-        rvFriends.visibility = View.VISIBLE
+        rvMovies.visibility = View.VISIBLE
         llEmpty.visibility = View.GONE
         adapter.setData(list)
     }
 
     override fun showEmpty(string: String) {
-        tvYear.text = string
-        rvFriends.visibility = View.GONE
+        rvMovies.visibility = View.GONE
         llEmpty.visibility = View.VISIBLE
     }
 }

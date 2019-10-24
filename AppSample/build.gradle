@@ -81,6 +81,12 @@ android {
 
 }
 
+kotlin {
+    experimental {
+        coroutines 'enable'
+    }
+}
+
 dependencies {
 
     implementation project(':ModuleBase')
@@ -90,6 +96,10 @@ dependencies {
 
     def moxyVersion = "1.5.3"
     kapt "com.arello-mobile:moxy-compiler:$moxyVersion"
+
+    //Room DataBase
+    def roomVersion = '2.2.0'
+    kapt "androidx.room:room-compiler:$roomVersion"
 
     //Loading indicator
     implementation 'com.github.ybq:Android-SpinKit:1.4.0'

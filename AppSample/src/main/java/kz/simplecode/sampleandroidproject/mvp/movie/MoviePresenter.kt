@@ -18,8 +18,8 @@ class MoviePresenter : SampleFragmentPresenter<MovieView>() {
                     showError(it)
                 })
         )
-    }
 
+    }
 
 }
 

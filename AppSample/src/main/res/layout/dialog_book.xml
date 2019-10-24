@@ -1,0 +1,109 @@
+<?xml version="1.0" encoding="utf-8"?>
+<androidx.cardview.widget.CardView xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    android:layout_width="match_parent"
+    android:layout_height="wrap_content"
+    app:cardCornerRadius="12dp">
+
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:background="@color/colorPrimary"
+        android:orientation="vertical">
+
+        <TextView
+            android:id="@+id/tvDialogTitle"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="10dp"
+            android:layout_marginBottom="@dimen/margin_side_description"
+            android:gravity="center"
+            android:text="@string/add"
+            android:textColor="@android:color/white"
+            android:textSize="16sp"
+            android:textStyle="bold" />
+
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_marginStart="16dp"
+            android:layout_marginEnd="16dp"
+            android:layout_marginBottom="@dimen/margin_side_description"
+            android:background="@drawable/background_search">
+
+            <com.google.android.material.textfield.TextInputEditText
+                android:id="@+id/etName"
+                android:layout_width="match_parent"
+                android:layout_height="@dimen/text_field_height"
+                android:layout_marginStart="16dp"
+                android:layout_marginEnd="16dp"
+                android:background="@android:color/transparent"
+                android:gravity="center_vertical"
+                android:hint="@string/book_name"
+                android:imeOptions="actionSend"
+                android:inputType="text"
+                android:singleLine="true"
+                android:textColor="@color/TextColorSearch"
+                android:textSize="13sp" />
+
+        </LinearLayout>
+
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_marginStart="16dp"
+            android:layout_marginEnd="16dp"
+            android:layout_marginBottom="@dimen/margin_side_description"
+            android:background="@drawable/background_search">
+
+            <com.google.android.material.textfield.TextInputEditText
+                android:id="@+id/etPages"
+                android:layout_width="match_parent"
+                android:layout_height="@dimen/text_field_height"
+                android:layout_marginStart="16dp"
+                android:layout_marginEnd="16dp"
+                android:background="@android:color/transparent"
+                android:gravity="center_vertical"
+                android:hint="@string/book_pages_count"
+                android:imeOptions="actionSend"
+                android:inputType="numberDecimal"
+                android:singleLine="true"
+                android:textColor="@color/TextColorSearch"
+                android:textSize="13sp" />
+
+        </LinearLayout>
+
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:gravity="bottom"
+            android:orientation="horizontal">
+
+
+            <Button
+                android:id="@+id/btnFirst"
+                android:layout_width="match_parent"
+                android:layout_height="35dp"
+                android:layout_gravity="center_horizontal"
+                android:layout_weight="1"
+                android:background="#9F3DD8"
+                android:text="@string/save"
+                android:textAllCaps="false"
+                android:textColor="@android:color/white"
+                android:textSize="15sp" />
+
+            <Button
+                android:id="@+id/btnSecond"
+                android:layout_width="match_parent"
+                android:layout_height="35dp"
+                android:layout_gravity="center_horizontal"
+                android:layout_weight="1"
+                android:background="#7F11BF"
+                android:text="@string/cancel"
+                android:textAllCaps="false"
+                android:textColor="@android:color/white"
+                android:textSize="15sp" />
+        </LinearLayout>
+
+    </LinearLayout>
+</androidx.cardview.widget.CardView>

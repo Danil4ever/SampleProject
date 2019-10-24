@@ -51,7 +51,7 @@ class MovieFragment : BaseMvpFragment<MoviePresenter>(), MovieView {
     }
 
     override fun showMovie(movie: MovieDetails) {
-        tvTitle.text = movie.title
+        tvDialogTitle.text = movie.title
 
         val calendar = Calendar.getInstance()
         calendar.timeInMillis = movie.releaseDate.time

@@ -14,7 +14,7 @@ class VHMovie(override val containerView: View, private val presenter: MoviesPre
     RecyclerView.ViewHolder(containerView), LayoutContainer {
 
     fun bind(details: MovieShort, position: Int) {
-        tvTitle.text = details.title
+        tvDialogTitle.text = details.title
 
         Picasso.get().load(SampleConstants.IMAGE_URL_W500 + details.posterPath).into(ivPoster)
 

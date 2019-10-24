@@ -6,5 +6,5 @@ import simple.code.base.ui.BaseTabContainerFragment
 
 
 class BooksTabFragment : BaseTabContainerFragment() {
-    override val mainScreen: Screen = SampleScreens.MoviesScreen()
+    override val mainScreen: Screen = SampleScreens.BooksScreen()
 }

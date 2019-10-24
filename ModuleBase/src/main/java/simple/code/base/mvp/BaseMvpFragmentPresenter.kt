@@ -2,6 +2,9 @@ package simple.code.base.mvp
 
 import com.arellomobile.mvp.MvpPresenter
 import io.reactivex.disposables.CompositeDisposable
+import kotlinx.coroutines.CoroutineScope
+import kotlinx.coroutines.Dispatchers
+import kotlinx.coroutines.Job
 import ru.terrakok.cicerone.Router
 import ru.terrakok.cicerone.android.support.SupportAppScreen
 import simple.code.base.BaseApplication
@@ -17,6 +20,8 @@ abstract class BaseMvpFragmentPresenter<T : BaseMvpFragmentView> : MvpPresenter<
     protected abstract val data: DataLayer
 
     protected var cd: CompositeDisposable = CompositeDisposable()
+    protected val presenterJob = Job()
+    protected val uiScope = CoroutineScope(Dispatchers.Main + presenterJob)
 
     open fun init(activity: BaseActivity<*>) {
         this.activity = activity
@@ -50,6 +55,7 @@ abstract class BaseMvpFragmentPresenter<T : BaseMvpFragmentView> : MvpPresenter<
         if (cd.isDisposed.not()) {
             cd.dispose()
         }
+        presenterJob.cancel()
     }
 
     fun backPressed() {

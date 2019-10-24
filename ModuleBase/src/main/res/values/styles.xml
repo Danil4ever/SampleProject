@@ -1,11 +1,5 @@
 <resources>
 
-    <style name="BaseAppTheme" parent="Theme.AppCompat.Light">
-    </style>
 
-    <style name="SplashTheme" parent="Theme.AppCompat.Light">
-        <item name="android:windowBackground">@drawable/splash_screen</item>
-        <item name="android:statusBarColor">@android:color/transparent</item>
-    </style>
 
 </resources>

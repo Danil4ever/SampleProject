@@ -7,4 +7,11 @@
     <string name="rate">Оценка</string>
     <string name="budget">Бюджет</string>
     <string name="year">Год</string>
+    <string name="save">Сохранить</string>
+    <string name="cancel">Отмена</string>
+    <string name="book_name">Наименование книги</string>
+    <string name="book_pages_count">Количество страниц</string>
+    <string name="edit">Редактировать</string>
+    <string name="add">Добавить</string>
+    <string name="empty">Ничего нет...</string>
 </resources>
