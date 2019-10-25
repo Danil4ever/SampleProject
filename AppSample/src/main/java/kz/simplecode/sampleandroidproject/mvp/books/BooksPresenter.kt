@@ -11,9 +11,13 @@ class BooksPresenter : SampleFragmentPresenter<BooksView>() {
 
     fun loadBooks() {
         uiScope.launch {
-            val books = database.bookDao().getAll()
-            viewState.showEmpty(books.isEmpty())
-            viewState.showBooks(books)
+            try {
+                val books = database.bookDao().getAll()
+                viewState.showEmpty(books.isEmpty())
+                viewState.showBooks(books)
+            } catch (error: Exception) {
+                showError(error)
+            }
         }
     }
 
@@ -27,17 +31,26 @@ class BooksPresenter : SampleFragmentPresenter<BooksView>() {
 
     fun deleteBook(book: Book) {
         uiScope.launch {
-            database.bookDao().delete(book)
-            viewState.deleteBook(book)
-            viewState.showEmpty(database.bookDao().getAll().isEmpty())
+            try {
+                database.bookDao().delete(book)
+                viewState.deleteBook(book)
+                viewState.showEmpty(database.bookDao().getAll().isEmpty())
+            } catch (error: Exception) {
+                showError(error)
+            }
+
         }
     }
 
     fun saveBook(book: Book) {
         uiScope.launch {
-            database.bookDao().insert(book)
-            viewState.addBook(book)
-            viewState.showEmpty(database.bookDao().getAll().isEmpty())
+            try {
+                database.bookDao().insert(book)
+                viewState.addBook(book)
+                viewState.showEmpty(database.bookDao().getAll().isEmpty())
+            } catch (error: Exception) {
+                showError(error)
+            }
         }
     }
 
